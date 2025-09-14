@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="description" content="Aetherium AI: Asistente especializado en leyes e impuestos de la República Dominicana.">
+    <title>Aetherium AI</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#121212">
+    <link rel="icon" href="/static/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="bg-black text-gray-300 font-sans antialiased min-h-screen flex flex-col">
+    <header class="w-full bg-gray-900 p-4 flex justify-between items-center lg:hidden" role="banner">
+        <h2 class="text-xl font-semibold text-white">Aetherium AI</h2>
+        <button id="menu-toggle" aria-label="Abrir menú de navegación" class="text-white focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+        </button>
+    </header>
+    <aside id="sidebar" class="bg-gray-900 p-4 h-screen overflow-y-auto fixed z-10 transition-all duration-300 transform -translate-x-full lg:translate-x-0" role="navigation">
+        <div class="lg:hidden absolute top-4 right-4">
+            <button id="close-menu" aria-label="Cerrar menú de navegación" class="text-white focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+        <h2 class="text-xl font-semibold text-white mb-4 flex items-center lg:mt-0 mt-12">Aetherium AI</h2>
+        <ul class="space-y-2">
+            <li><a href="/" class="block p-2 hover:bg-gray-800 rounded transition">Chat</a></li>
+            <li><a href="#" class="block p-2 hover:bg-gray-800 rounded transition">Voz</a></li>
+            <li><a href="/templates/login.html" class="block p-2 hover:bg-gray-800 rounded transition">Aetherium</a></li>
+            <li><button id="clear-history" class="w-full p-2 bg-red-900 text-white rounded hover:bg-red-800 transition">Borrar Historial</button></li>
+        </ul>
+        <div class="mt-auto pt-4 border-t border-gray-800">
+            <p class="text-xs text-gray-500">© 2025 Aetherium AI. Todos los derechos reservados.</p>
+        </div>
+    </aside>
+    <main class="flex-1 p-4 ml-0 lg:ml-64 relative flex flex-col overflow-hidden" role="main">
+        <div id="chat-container" class="bg-gray-900 rounded-lg flex-grow overflow-y-auto p-4 shadow-inner touch-action-auto">
+            <div id="chat-messages" class="space-y-4 prose dark:prose-invert max-w-none"></div>
+            <div id="typing-indicator" class="hidden text-gray-500 animate-pulse p-2 bg-gray-800 rounded">Aetherium AI está procesando...</div>
+            <div id="error-message" class="hidden text-red-500 p-2 bg-gray-800 rounded mt-2">Error: No se pudo procesar la solicitud.</div>
+        </div>
+        <form id="chat-form" class="bg-gray-900 p-4 flex items-center justify-center space-x-2 border-t border-gray-800 flex-shrink-0" role="form" aria-label="Formulario de chat">
+            <div class="relative flex-grow max-w-3xl w-full">
+                <input id="message-input" type="text" placeholder="Consulta sobre leyes o impuestos en RD..." class="w-full p-3 pr-12 bg-gray-800 border border-gray-700 rounded-full text-white focus:outline-none focus:border-blue-500 transition ring-0" aria-label="Escribir mensaje">
+                <button id="voice-btn" type="button" aria-label="Iniciar grabación de voz" class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white transition"><i class="fas fa-microphone"></i></button>
+            </div>
+            <select id="language-select" class="p-2 bg-gray-800 border border-gray-700 rounded-full text-white focus:outline-none" aria-label="Seleccionar idioma">
+                <option value="es">ES</option>
+                <option value="en">EN</option>
+            </select>
+            <button type="submit" aria-label="Enviar mensaje" class="bg-blue-600 text-white rounded-full p-3 hover:bg-blue-700 transition"><i class="fas fa-paper-plane"></i></button>
+        </form>
+    </main>
+    <script src="/static/script.js"></script>
+</body>
+</html>

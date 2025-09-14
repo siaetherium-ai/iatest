@@ -1,0 +1,15 @@
+{
+  "name": "Aetherium AI",
+  "short_name": "Aetherium AI",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#121212",
+  "theme_color": "#121212",
+  "icons": [
+    {
+      "src": "/static/favicon.ico",
+      "sizes": "64x64",
+      "type": "image/x-icon"
+    }
+  ]
+}
