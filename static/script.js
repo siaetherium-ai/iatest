@@ -17,6 +17,11 @@ document.addEventListener('DOMContentLoaded', () => {
     let audioChunks = [];
     let audioContext, analyser, dataArray, canvas, canvasCtx;
 
+    // Detect API base URL (local or production)
+    const API_BASE = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
+        ? "http://127.0.0.1:8000"
+        : "https://aetherium-gw0r.onrender.com";
+
     // Initialize waveform canvas with responsive sizing
     canvas = document.createElement('canvas');
     const updateCanvasSize = () => {
@@ -63,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
             errorMessage.classList.add('hidden');
 
             try {
-                const response = await fetch('http://127.0.0.1:8000/chat', {
+                const response = await fetch(`${API_BASE}/chat`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ message, language: languageSelect.value })
@@ -130,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     typingIndicator.classList.remove('hidden');
                     try {
-                        const response = await fetch('http://127.0.0.1:8000/voice', {
+                        const response = await fetch(`${API_BASE}/voice`, {
                             method: 'POST',
                             body: formData
                         });
